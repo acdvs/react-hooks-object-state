@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-object-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hook for partially updating state objects within functional components.",
   "main": "./lib/index.js",
   "scripts": {
