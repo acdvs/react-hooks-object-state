@@ -22,7 +22,12 @@ import React from 'react'
 import useObjectState from 'react-hooks-object-state'
 
 let initialObject = {
-  bool: true
+  bool: true,
+  string: 'foo'
+}
+
+let newEntries = {
+  bool: false
 }
 
 const Example = () => {
