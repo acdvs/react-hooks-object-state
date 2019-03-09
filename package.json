@@ -2,7 +2,7 @@
   "name": "react-hooks-object-state",
   "version": "1.0.0",
   "description": "React hook for partially updating state objects within functional components.",
-  "main": "./src",
+  "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint lib/** && eslint test/util/**",
     "test": "jest --verbose"
