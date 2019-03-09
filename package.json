@@ -1,0 +1,43 @@
+{
+  "name": "react-hooks-object-state",
+  "version": "1.0.0",
+  "description": "React hook for partially updating state objects within functional components.",
+  "main": "./src",
+  "scripts": {
+    "lint": "eslint lib/** && eslint test/util/**",
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "rootDir": "test",
+    "testRegex": "/test/.*\\.test\\.js$"
+  },
+  "keywords": [
+    "React",
+    "helper",
+    "useState",
+    "object",
+    "hook",
+    "functional"
+  ],
+  "author": "Adam Davies (https://adam-davies.me)",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.4.0",
+    "jest": "^24.3.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-testing-library": "^6.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
+  }
+}

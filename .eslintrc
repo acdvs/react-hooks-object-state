@@ -1,0 +1,105 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect",
+        },
+    },
+    "plugins": ["react"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        // Best practices
+        "block-scoped-var": 2,
+        "consistent-return": 1,
+        "curly": [2, "multi-line"],
+        "default-case": 2,
+        "dot-location": [2, "property"],
+        "eqeqeq": [1, "always"],
+        "max-classes-per-file": [2, 1],
+        "no-empty-function": 1,
+        "no-empty-pattern": 1,
+        "no-eq-null": 2,
+        "no-eval": 2,
+        "no-implied-eval": 2,
+        "no-iterator": 2,
+        "no-lone-blocks": 2,
+        "no-multi-spaces": 1,
+        "no-multi-str": 2,
+        "no-new": 1,
+        "no-new-func": 2,
+        "no-new-wrappers": 2,
+        "no-param-reassign": 2,
+        "no-redeclare": 1,
+        "no-return-assign": 2,
+        "no-script-url": 2,
+        "no-self-assign": 2,
+        "no-self-compare": 2,
+        "no-unmodified-loop-condition": 1,
+        "no-useless-return": 1,
+        "yoda": [1, "never", {"onlyEquality": true}],
+
+        // Variables
+        "no-undef-init": 2,
+        "no-undefined": 2,
+        "no-unused-vars": 1,
+        "no-use-before-define": 2,
+
+        // Node.js and CommonJS
+        "no-new-require": 2,
+        "no-path-concat": 1,
+
+        // Stylistic
+        "jsx-quotes": [2, "prefer-double"],
+        "no-lonely-if": 2,
+        "no-mixed-spaces-and-tabs": 2,
+        "no-multi-assign": 2,
+        "quotes": [1, "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
+        "semi-spacing": [2, {"before": false, "after": true}],
+        "semi-style": [2, "last"],
+        "space-before-function-paren": [2, {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+
+        // ES6
+        "arrow-parens": [1, "as-needed"],
+        "constructor-super": 2,
+        "no-class-assign": 2,
+        "no-confusing-arrow": 1,
+        "no-const-assign": 2,
+        "no-duplicate-imports": 2,
+        "no-this-before-super": 1,
+        "no-useless-rename": 2,
+        "no-var": 2,
+        "require-yield": 2,
+        "rest-spread-spacing": [2, "never"],
+
+        // React
+        "react/jsx-key": 2,
+        "react/jsx-no-bind": [1, {
+            "ignoreRefs": true,
+            "allowArrowFunctions": true,
+            "allowBind": false
+        }],
+        "react/jsx-no-duplicate-props": 2,
+        "react/jsx-pascal-case": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-danger": 1,
+        "react/no-deprecated": 1,
+        "react/no-is-mounted": 2,
+        "react/no-unknown-property": 2,
+        "react/react-in-jsx-scope": 2,
+        "react/require-render-return": 2
+    }
+}
