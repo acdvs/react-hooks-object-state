@@ -44,8 +44,14 @@ const Example = () => {
     </div>
   )
 }
+
+// myObject after update:
+// {
+//   bool: false,
+//   string: 'foo'
+// }
 ```
 
-Note that an initial object <u>must</u> be provided to `useObjectState`. This hook does not merge objects but instead copies _existing_ values from a source to a target object.
+Note that an initial object **must** be provided to `useObjectState`. This hook does not merge objects but instead copies _existing_ values from a source to a target object.
 
 Like the classical component `setState` method, this does not create entries if they don't already exist. Providing an empty initial object will always result in an empty object.
