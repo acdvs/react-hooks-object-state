@@ -7,7 +7,7 @@ import objects from './util/objects'
 
 afterEach(cleanup)
 
-describe('Object depth tests', () => {
+describe('Object update tests', () => {
   test('depth 1', () => {
     const d1 = objects.depthOne
 

@@ -7,7 +7,7 @@ import TestComponent from './util/TestComponent'
 afterEach(cleanup)
 
 describe('Hook parameter tests', () => {
-  test('no parameters', () => {
+  test('no initial object -> no final object', () => {
     let object = { test: true }
 
     const { getByTestId } = render(<TestComponent newEntries={object} />)
@@ -21,7 +21,21 @@ describe('Hook parameter tests', () => {
     expect(JSON.parse(p.textContent)).toEqual({})
   })
 
-  test('no update object', () => {
+  test('null update object -> same final object', () => {
+    let object = { test: true }
+
+    const { getByTestId } = render(<TestComponent initObject={object} newEntries={null} />)
+    const p = getByTestId('text')
+
+    // Check initial state
+    expect(JSON.parse(p.textContent)).toEqual(object)
+
+    // Simulate click and check new state
+    fireEvent.click(getByTestId('button'))
+    expect(JSON.parse(p.textContent)).toEqual(object)
+  })
+
+  test('no update object -> same final object', () => {
     let object = { test: true }
 
     const { getByTestId } = render(<TestComponent initObject={object} />)
