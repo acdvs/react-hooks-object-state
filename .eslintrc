@@ -72,7 +72,7 @@
         }],
 
         // ES6
-        "arrow-parens": [1, "as-needed"],
+        "arrow-parens": [1, "always"],
         "constructor-super": 2,
         "no-class-assign": 2,
         "no-confusing-arrow": 1,
