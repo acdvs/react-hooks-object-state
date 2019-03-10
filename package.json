@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-object-state",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "React hook for partially updating state objects within functional components.",
   "main": "./lib/index.js",
   "scripts": {
@@ -17,7 +17,8 @@
     "useState",
     "object",
     "hook",
-    "functional"
+    "functional",
+    "state"
   ],
   "author": "Adam Davies (https://adam-davies.me)",
   "license": "MIT",
