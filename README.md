@@ -1,4 +1,8 @@
-# About
+<a href="https://travis-ci.org/adamdavies001/react-hooks-object-state"><img src="https://travis-ci.org/adamdavies001/react-hooks-object-state.svg?branch=master" alt="Travis Build Status"></a>
+<a href="https://ci.appveyor.com/project/adamdavies001/react-hooks-object-state"><img src="https://ci.appveyor.com/api/projects/status/jc0a2g2t7t4logcu/branch/master?svg=true" alt="Windows Build Status"></a>
+<a href="https://badge.fury.io/js/react-hooks-object-state"><img src="https://badge.fury.io/js/react-hooks-object-state.png" alt="npm version"></a>
+
+## About
 
 This package is a React hook for partially updating object states within functional components. It reflects the merge behavior of `setState` used in classical components.
 
@@ -9,8 +13,6 @@ This package is a React hook for partially updating object states within functio
 
 - Partially update object values in state without erasing any non-updated entries
 - Calculate new values based on the previous state with a function argument
-
-The use of `props` in function arguments is not included since hooks are not able to read component props and workarounds would not be effective.
 
 ## Install
 
@@ -62,6 +64,8 @@ const updateObject = () => {
   })
 }
 ```
+
+The use of `props` in function arguments is not included since hooks are not able to read component props and workarounds would effectively replicate `setState`'s behavior.
 
 #### Additional info
 
