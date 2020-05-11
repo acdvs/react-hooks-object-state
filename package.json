@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint lib/** && eslint test/util/**",
-    "test": "jest --verbose"
+    "test": "jest --coverage"
   },
   "jest": {
     "rootDir": "test",

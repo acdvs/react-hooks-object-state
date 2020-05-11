@@ -1,10 +1,12 @@
-language:
-  node_js
+sudo: false
+language: node_js
 node_js:
   - 10
+before_install:
+  - npm update
 install:
-  - npm install -g jest
+  - npm install
   - npm install -g codecov
 script:
-  - jest
+  - npm test
   - codecov
