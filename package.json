@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-object-state",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React hook for partially updating state objects within functional components.",
   "main": "./lib/index.js",
   "scripts": {
@@ -9,7 +9,9 @@
   },
   "jest": {
     "rootDir": "test",
-    "testRegex": "/test/.*\\.test\\.js$"
+    "testRegex": "/test/.*\\.test\\.js$",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "React",
