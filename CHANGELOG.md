@@ -1,3 +1,7 @@
+## v1.1.1
+
+- Improve object dereferencing
+
 ## v1.1.0
 
-- Adds function argument support to better reflect `setState` (`props` argument in function not yet available, see README)
+- Add function argument support to better reflect `setState` (`props` argument in function not yet available, see README)
