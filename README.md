@@ -1,10 +1,12 @@
-<a href="https://travis-ci.org/adamdavies001/react-hooks-object-state"><img src="https://travis-ci.org/adamdavies001/react-hooks-object-state.svg?branch=master" alt="Travis Build Status"></a>
-<a href="https://ci.appveyor.com/project/adamdavies001/react-hooks-object-state"><img src="https://ci.appveyor.com/api/projects/status/jc0a2g2t7t4logcu/branch/master?svg=true" alt="Windows Build Status"></a>
-<a href="https://badge.fury.io/js/react-hooks-object-state"><img src="https://badge.fury.io/js/react-hooks-object-state.png" alt="npm version"></a>
+[![License](https://img.shields.io/github/license/adamdavies001/react-hooks-object-state)](https://github.com/adamdavies001/react-hooks-object-state/blob/master/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/react-hooks-object-state)](https://www.npmjs.com/package/react-hooks-object-state)
+[![Travis Build Status](https://img.shields.io/travis/adamdavies001/react-hooks-object-state)](https://travis-ci.org/adamdavies001/react-hooks-object-state)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/jc0a2g2t7t4logcu?svg=true)](https://ci.appveyor.com/project/adamdavies001/react-hooks-object-state)
+[![Codecov](https://img.shields.io/codecov/c/gh/adamdavies001/react-hooks-object-state)](https://codecov.io/gh/adamdavies001/react-hooks-object-state)
 
 ## About
 
-This package is a React hook for partially updating object states within functional components. It reflects the merge behavior of `setState` used in classical components.
+This package is a React hook for partially updating object states within functional components that avoids the default behavior of `useState` that overwrites the entire object state. It reflects the merge behavior of `setState` used in classical components.
 
 **Use this** when you need an object state that shouldn't be split up into multiple states.  
 **Don't use this** if you only need an object state with a few simple properties.
@@ -27,21 +29,17 @@ Peer dependencies: react (^16.8.0)
 Within a functional component, simply declare and use the `useObjectState` hook to create a state object. Then pass any object updates to the returned setter function to update the original object.
 
 ```jsx
-import React from 'react'
-import useObjectState from 'react-hooks-object-state'
+import React from 'react';
+import useObjectState from 'react-hooks-object-state';
 
 const Example = () => {
-  const [myObject, setMyObject] = useObjectState({bool: true, string: 'foo'})
+  const [myObject, setMyObject] = useObjectState({ bool: true, string: 'foo' });
 
   const updateObject = () => {
-    setMyObject({bool: false})
+    setMyObject({ bool: false });
   }
 
-  return (
-    <div>
-      <button onClick={updateObject}>Update object</button>
-    </div>
-  )
+  return <button onClick={updateObject}>Update object</button>;
 }
 
 // myObject after update:
@@ -53,9 +51,9 @@ const Example = () => {
 
 #### Passing a function
 
-Alternatively, you can pass a function to the setter if you need to use `state` to calculate object values.
+Alternatively, you can pass a function to the setter if you need to use the previous state to calculate new state values.
 
-```js
+```jsx
 const updateObject = () => {
   setMyObject((state) => {
     return {
@@ -65,10 +63,10 @@ const updateObject = () => {
 }
 ```
 
-The use of `props` in function arguments is not included since hooks are not able to read component props and workarounds would effectively replicate `setState`'s behavior.
+The use of `props` in function arguments is not included since hooks are not able to read component props, and workarounds would not effectively replicate the classical `setState` behavior.
 
 #### Additional info
 
-An initial object **must** be provided to `useObjectState`. This hook deep-merges objects by copying _shared_ entries from a source to a target object.
+An initial object **must** be provided to `useObjectState`. This hook deep-merges objects by copying common entries from a source to a target object.
 
-Like the classical component `setState` method, this does not create entries if they don't already exist. Providing an empty initial object will always result in an empty object.
+Like the classical `setState` method, this does not create entries if they don't already exist. Providing an empty initial object will always result in an empty object.
