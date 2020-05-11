@@ -1,16 +1,17 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "node": true
     },
     "settings": {
         "react": {
-            "version": "detect",
-        },
+            "version": "detect"
+        }
     },
     "plugins": ["react"],
     "parser": "babel-eslint",
     "parserOptions": {
+        "ecmaVersion": 6,
         "sourceType": "module"
     },
     "rules": {
