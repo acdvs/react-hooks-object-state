@@ -1,38 +1,27 @@
-'use strict'
+'use strict';
 
-import React from 'react'
-import { render, fireEvent, cleanup } from 'react-testing-library'
-import TestComponent from './util/TestComponent'
-import functions from './util/functions'
+import { renderHook, act } from '@testing-library/react-hooks';
+import useObjectState from '../lib/useObjectState';
+import testFunctions from './util/functions';
 
-afterEach(cleanup)
+test('function: basic', () => {
+  const func = testFunctions.basic;
+  const { result } = renderHook(() => useObjectState(func.initObject));
 
-describe('Function update tests', () => {
-  test('basic -> updated final object', () => {
-    const obj = functions.basic
+  expect(result.current[0]).toStrictEqual(func.initObject);
 
-    const { getByTestId } = render(<TestComponent initObject={obj.initObject} newEntries={obj.newEntries} />)
-    const p = getByTestId('text')
+  act(() => result.current[1](func.newEntries));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(obj.initObject)
+  expect(result.current[0]).toStrictEqual(func.merged);
+});
 
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(obj.merged)
-  })
+test('function: with state', () => {
+  const func = testFunctions.state;
+  const { result } = renderHook(() => useObjectState(func.initObject));
 
-  test('using state -> updated final object', () => {
-    const obj = functions.state
+  expect(result.current[0]).toStrictEqual(func.initObject);
 
-    const { getByTestId } = render(<TestComponent initObject={obj.initObject} newEntries={obj.newEntries} />)
-    const p = getByTestId('text')
+  act(() => result.current[1](func.newEntries));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(obj.initObject)
-
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(obj.merged)
-  })
-})
+  expect(result.current[0]).toStrictEqual(func.merged);
+});

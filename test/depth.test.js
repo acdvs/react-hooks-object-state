@@ -1,52 +1,38 @@
-'use strict'
+'use strict';
 
-import React from 'react'
-import { render, fireEvent, cleanup } from 'react-testing-library'
-import TestComponent from './util/TestComponent'
-import objects from './util/objects'
+import { renderHook, act } from '@testing-library/react-hooks';
+import useObjectState from '../lib/useObjectState';
+import testObjects from './util/objects';
 
-afterEach(cleanup)
+test('object: depth 1', () => {
+  const obj = testObjects.depth1;
+  const { result } = renderHook(() => useObjectState(obj.initObject));
 
-describe('Object update tests', () => {
-  test('depth 1', () => {
-    const d1 = objects.depthOne
+  expect(result.current[0]).toStrictEqual(obj.initObject);
 
-    const { getByTestId } = render(<TestComponent initObject={d1.initObject} newEntries={d1.newEntries} />)
-    const p = getByTestId('text')
+  act(() => result.current[1](obj.newEntries));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(d1.initObject)
+  expect(result.current[0]).toStrictEqual(obj.merged);
+});
 
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(d1.merged)
-  })
+test('object: depth 2', () => {
+  const obj = testObjects.depth2;
+  const { result } = renderHook(() => useObjectState(obj.initObject));
 
-  test('depth 2', () => {
-    const d2 = objects.depthTwo
+  expect(result.current[0]).toStrictEqual(obj.initObject);
 
-    const { getByTestId } = render(<TestComponent initObject={d2.initObject} newEntries={d2.newEntries} />)
-    const p = getByTestId('text')
+  act(() => result.current[1](obj.newEntries));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(d2.initObject)
+  expect(result.current[0]).toStrictEqual(obj.merged);
+});
 
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(d2.merged)
-  })
+test('object: depth 3', () => {
+  const obj = testObjects.depth3;
+  const { result } = renderHook(() => useObjectState(obj.initObject));
 
-  test('depth 3', () => {
-    const d3 = objects.depthThree
+  expect(result.current[0]).toStrictEqual(obj.initObject);
 
-    const { getByTestId } = render(<TestComponent initObject={d3.initObject} newEntries={d3.newEntries} />)
-    const p = getByTestId('text')
+  act(() => result.current[1](obj.newEntries));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(d3.initObject)
-
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(d3.merged)
-  })
-})
+  expect(result.current[0]).toStrictEqual(obj.merged);
+});

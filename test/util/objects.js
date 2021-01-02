@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 const objects = {
-  depthOne: {
+  depth1: {
     initObject: {
       bool1: true,
       string1: 'foo',
@@ -16,7 +16,7 @@ const objects = {
       number1: 5
     }
   },
-  depthTwo: {
+  depth2: {
     initObject: {
       bool1: true,
       string1: 'foo',
@@ -40,7 +40,7 @@ const objects = {
       }
     }
   },
-  depthThree: {
+  depth3: {
     initObject: {
       bool1: true,
       string1: 'foo',
@@ -97,6 +97,6 @@ const objects = {
       array1: [1, [3, 3], 5]
     }
   }
-}
+};
 
-export default objects
+export default objects;

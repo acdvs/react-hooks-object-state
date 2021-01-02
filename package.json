@@ -1,7 +1,7 @@
 {
   "name": "react-hooks-object-state",
-  "version": "1.1.1",
-  "description": "React hook for partially updating state objects within functional components.",
+  "version": "1.1.2",
+  "description": "React hook for partially updating state objects within functional components",
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint lib/** && eslint test/util/**",
@@ -29,13 +29,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/adamdavies001/react-hooks-object-state.git"
+    "url": "https://github.com/acdvs/react-hooks-object-state.git"
   },
-  "homepage": "https://github.com/adamdavies001/react-hooks-object-state#readme",
+  "homepage": "https://github.com/acdvs/react-hooks-object-state#readme",
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react-hooks": "^3.7.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-plugin-react": "^7.12.4",
@@ -43,7 +44,7 @@
     "jest": "^24.3.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-testing-library": "^6.0.0"
+    "react-test-renderer": "^17.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.4"

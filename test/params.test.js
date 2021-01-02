@@ -1,51 +1,34 @@
-'use strict'
+'use strict';
 
-import React from 'react'
-import { render, fireEvent, cleanup } from 'react-testing-library'
-import TestComponent from './util/TestComponent'
+import { renderHook, act } from '@testing-library/react-hooks';
+import useObjectState from '../lib/useObjectState';
 
-afterEach(cleanup)
+test('params: no initial object -> no final object', () => {
+  const { result } = renderHook(() => useObjectState());
 
-describe('Hook parameter tests', () => {
-  test('no initial object -> no final object', () => {
-    let object = { test: true }
+  expect(typeof result.current[0]).toBe('undefined');
+  expect(typeof result.current[1]).toBe('undefined');
+});
 
-    const { getByTestId } = render(<TestComponent newEntries={object} />)
-    const p = getByTestId('text')
+test('params: no update object -> same final object', () => {
+  const obj = { string: 'foo' };
+  const { result } = renderHook(() => useObjectState(obj));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual({})
+  expect(result.current[0]).toStrictEqual(obj);
 
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual({})
-  })
+  act(() => result.current[1]());
 
-  test('null update object -> same final object', () => {
-    let object = { test: true }
+  expect(result.current[0]).toStrictEqual(obj);
+});
 
-    const { getByTestId } = render(<TestComponent initObject={object} newEntries={null} />)
-    const p = getByTestId('text')
+test('params: mismatching update object -> same final object', () => {
+  const initialObj = { string: 'foo' };
+  const updateObj = { number: 1 };
+  const { result } = renderHook(() => useObjectState(initialObj));
 
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(object)
+  expect(result.current[0]).toStrictEqual(initialObj);
 
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(object)
-  })
+  act(() => result.current[1](updateObj));
 
-  test('no update object -> same final object', () => {
-    let object = { test: true }
-
-    const { getByTestId } = render(<TestComponent initObject={object} />)
-    const p = getByTestId('text')
-
-    // Check initial state
-    expect(JSON.parse(p.textContent)).toEqual(object)
-
-    // Simulate click and check new state
-    fireEvent.click(getByTestId('button'))
-    expect(JSON.parse(p.textContent)).toEqual(object)
-  })
-})
+  expect(result.current[0]).toStrictEqual(initialObj);
+});

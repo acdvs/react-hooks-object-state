@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const functions = {
   basic: {
@@ -9,7 +9,7 @@ const functions = {
     newEntries: () => {
       return {
         bool: false
-      }
+      };
     },
     merged: {
       bool: false,
@@ -24,13 +24,13 @@ const functions = {
     newEntries: (state) => {
       return {
         number: state.number + 5
-      }
+      };
     },
     merged: {
       number: 5,
       string: 'foo'
     }
   }
-}
+};
 
-export default functions
+export default functions;
